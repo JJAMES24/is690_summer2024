@@ -18,7 +18,7 @@ services:
       - postgres-data:/var/lib/postgresql/data
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:6.21 # Use a specific version
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: adminpassword
@@ -37,7 +37,7 @@ services:
     volumes:
       - ./:/myapp/
     ports:
-      - 8000:8000
+      - "8000:8000"
     depends_on:
       postgres:
         condition: service_healthy
